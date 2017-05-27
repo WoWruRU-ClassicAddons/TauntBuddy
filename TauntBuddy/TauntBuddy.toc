@@ -1,7 +1,9 @@
 ## Interface: 11200
 ## Title: Taunt Buddy
 ## Notes: Notices Party/Raid members when your taunt gets resisted or when your mocking blow fails.
-## Dependencies:
+## Notes-ruRU: Оповещение членов группы/рейда, когда ваша провокация получает сопротивление или ваш дразнящий удар терпит неудачу.
+## Version: 1.33
 ## SavedVariables: TBSettings
 ## OptionalDeps: CT_RaidAssist
+
 TauntBuddy.xml

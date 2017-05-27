@@ -1,6 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 	<Script file="localization.lua"/> 
 	<Script file="TauntBuddy.lua"/>
+	
 	<Frame name="TauntBuddyFrame" frameStrata="BACKGROUND" toplevel="true" enableMouse="true" movable="true" parent="UIParent" hidden="true">
 		<Scripts>
 			<OnLoad>TB_OnLoad();</OnLoad>
@@ -9,7 +10,7 @@
 		<Size><AbsDimension x="200" y="250"/></Size>
 		<Anchors>
 			<Anchor point="CENTER"/>
- 		</Anchors>
+		</Anchors>
 		<Frames>
 			<Button name="ButtonClose" inherits="OptionsButtonTemplate" text="TB_GUI_Close">
 				<Anchors>
@@ -42,7 +43,7 @@
 						<Offset>
 							<AbsDimension x="0" y="15"/>
 						</Offset>
-  					</Anchor>
+					</Anchor>
 				</Anchors>
 				<Layers>
 					<Layer level="BACKGROUND">
@@ -51,18 +52,18 @@
 								<Anchor point="TOPCENTER" relativeTo="TauntBuddyFrameTitle">
 									<Offset>
   										<AbsDimension x="0" y="-16" /> 
-  									</Offset>
-  								</Anchor>
-  							</Anchors>
+									</Offset>
+								</Anchor>
+							</Anchors>
 						</FontString>
 						<FontString name="EnableText" inherits="GameFontNormalSmall" text="TB_GUI_EnableTauntBuddy">
 							<Anchors>
 								<Anchor point="TOPLEFT" relativeTo="TauntBuddyFrame">
 									<Offset>
   										<AbsDimension x="65" y="-30"/> 
-  									</Offset>
-  								</Anchor>
-  							</Anchors>
+									</Offset>
+								</Anchor>
+							</Anchors>
 						</FontString>
 					</Layer>
 				</Layers>
@@ -76,7 +77,7 @@
 					<BackgroundInsets>
 						<AbsInset left="5" right="5" top="5" bottom="5"/>
 					</BackgroundInsets>
- 				</Backdrop>
+				</Backdrop>
 			</Frame>
 			<Frame name="TB_ChannelDropDown" inherits="UIDropDownMenuTemplate" hidden="false">
 				<Size>
@@ -104,9 +105,9 @@
 								<Anchor point="TOP" relativeTo="TB_ChannelDropDown">
 									<Offset>
   										<AbsDimension x="0" y="12" /> 
-  									</Offset>
-  								</Anchor>
-  							</Anchors>
+									</Offset>
+								</Anchor>
+							</Anchors>
 						</FontString>
 					</Layer>
 				</Layers>
@@ -126,9 +127,9 @@
 								<Anchor point="BOTTOM" relativeTo="ButtonCustomChannel">
 									<Offset>
   										<AbsDimension x="0" y="-25" /> 
-  									</Offset>
-  								</Anchor>
-  							</Anchors>
+									</Offset>
+								</Anchor>
+							</Anchors>
 						</FontString>
 					</Layer>
 				</Layers>
@@ -167,9 +168,9 @@
 										<Anchor point="TOP" relativeTo="SetCustomChannel">
 											<Offset>
   												<AbsDimension x="0" y="-12" /> 
-  											</Offset>
-  										</Anchor>
-  									</Anchors>
+											</Offset>
+										</Anchor>
+									</Anchors>
 								</FontString>
 							</Layer>
 							<Layer level="ARTWORK">
@@ -244,7 +245,7 @@
 					<BackgroundInsets>
 						<AbsInset left="5" right="5" top="5" bottom="5"/>
 					</BackgroundInsets>
- 				</Backdrop>
+				</Backdrop>
 			</Frame>
 			<Button name="ButtonAnnouncementTextTaunt" inherits="OptionsButtonTemplate" text="TB_GUI_Taunt">
 				<Anchors>
@@ -284,8 +285,6 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-
-
 			<Frame name ="SetTauntText" frameStrata="HIGH" toplevel="true" enableMouse="true" movable="true" parent="TauntBuddyFrame" hidden="true">
 				<Size><AbsDimension x="500" y="85"/></Size>
 				<Anchors>
@@ -310,9 +309,9 @@
 										<Anchor point="TOP" relativeTo="SetTauntText">
 											<Offset>
   												<AbsDimension x="0" y="-12" /> 
-  											</Offset>
-  										</Anchor>
-  									</Anchors>
+											</Offset>
+										</Anchor>
+									</Anchors>
 								</FontString>
 							</Layer>
 							<Layer level="ARTWORK">
@@ -387,10 +386,8 @@
 					<BackgroundInsets>
 						<AbsInset left="5" right="5" top="5" bottom="5"/>
 					</BackgroundInsets>
- 				</Backdrop>
+				</Backdrop>
 			</Frame>
-
-
 			<Frame name ="SetMBText" frameStrata="HIGH" toplevel="true" enableMouse="true" movable="true" parent="TauntBuddyFrame" hidden="true">
 				<Size><AbsDimension x="500" y="85"/></Size>
 				<Anchors>
@@ -415,9 +412,9 @@
 										<Anchor point="TOP" relativeTo="SetMBText">
 											<Offset>
   												<AbsDimension x="0" y="-12" /> 
-  											</Offset>
-  										</Anchor>
-  									</Anchors>
+											</Offset>
+										</Anchor>
+									</Anchors>
 								</FontString>
 							</Layer>
 							<Layer level="ARTWORK">
@@ -492,10 +489,8 @@
 					<BackgroundInsets>
 						<AbsInset left="5" right="5" top="5" bottom="5"/>
 					</BackgroundInsets>
- 				</Backdrop>
+				</Backdrop>
 			</Frame>
-
-
 		</Frames>
 		<Backdrop bgFile="Interface\TutorialFrame\TutorialFrameBackground" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
 			<EdgeSize>
@@ -507,22 +502,19 @@
 			<BackgroundInsets>
 				<AbsInset left="5" right="5" top="5" bottom="5"/>
 			</BackgroundInsets>
- 		</Backdrop>
+		</Backdrop>
 		<Layers>
 			<Layer level="BACKGROUND">
 				<FontString name="VersionText" inherits="GameFontNormalSmall" text="TB_version">
-							<Anchors>
-								<Anchor point="BOTTOMLEFT" relativeTo="TauntBuddyFrame">
-									<Offset>
-  										<AbsDimension x="16" y="16" /> 
-  									</Offset>
-  								</Anchor>
-  							</Anchors>
-						</FontString>
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="TauntBuddyFrame">
+							<Offset>
+								<AbsDimension x="16" y="16" /> 
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
 			</Layer>
 		</Layers>
 	</Frame>
 </Ui>
-
-
-			

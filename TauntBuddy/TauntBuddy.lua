@@ -1,8 +1,8 @@
 --[[
--	Taunt Buddy v1.33
--	Author: Artun Subasi
--	Kane from Magtherion EU (retired)
--	Contact: http://www.curse-gaming.com | USER NAME: Kane
+	-	Taunt Buddy v1.33
+	-	Author: Artun Subasi
+	-	Kane from Magtherion EU (retired)
+	-	Contact: http://www.curse-gaming.com | USER NAME: Kane
 --]]
 
 function TB_OnLoad()
@@ -10,7 +10,7 @@ function TB_OnLoad()
 	if (englishClass ~= "WARRIOR") then
 		return;
 	end
-		
+	
 	TauntBuddyFrame:RegisterEvent("VARIABLES_LOADED");					-- Jump to event function when variables are loaded
 	SlashCmdList["TBSLASH"] = TB_SlashCommandHandler;					-- List of slash commands
 	SLASH_TBSLASH1 = "/tauntbuddy";								-- /tauntbuddy
@@ -18,14 +18,14 @@ function TB_OnLoad()
 end
 
 function TB_OnEvent(event)
- 										
+	
 	-- Execute this function whenever you get a string in the self damage spells section, or when variables are loaded.
 	if(event == "CHAT_MSG_SPELL_SELF_DAMAGE") then
 		local _, _, taunt = string.find(arg1, TB_tauntLine); 	-- Searchs the string for the following regular expression 
 		local _, _, mb = string.find(arg1, TB_mb);
 		if (taunt) then 										-- Checks if your taunt was resisted
-	
-		-- Your taunt was resisted, now announce in channel according to options --
+			
+			-- Your taunt was resisted, now announce in channel according to options --
 			-- Channel option: AUTO --
 			if (TBSettings.channel == "auto") then
 				if (GetNumRaidMembers() > 0) then					-- Checks if you are in a raid
@@ -38,24 +38,24 @@ function TB_OnEvent(event)
 				else
 					SendChatMessage(TBSettings.text_t,"SAY"); 		-- Announcement in say channel
 				end
-
-			-- Channel option: RAID --
+				
+				-- Channel option: RAID --
 			elseif (TBSettings.channel == "raid") then
 				if (GetNumRaidMembers() > 0) then					-- Checks if you are in a raid
 					SendChatMessage(TBSettings.text_t,"RAID");			-- Announcement in raid channel
 				end
-		
-			-- Channel option: PARTY --
+				
+				-- Channel option: PARTY --
 			elseif (TBSettings.channel == "party") then
 				if (GetNumPartyMembers() > 0) then					-- Checks if you are in a party
 					SendChatMessage(TBSettings.text_t,"PARTY"); 			-- Announcement in raid channel
 				end
-
-			-- Channel option: SAY --
+				
+				-- Channel option: SAY --
 			elseif (TBSettings.channel == "say") then			
 				SendChatMessage(TBSettings.text_t,"SAY"); 			-- Announcement in say channel
-
-			-- Channel option: CTRAID --
+				
+				-- Channel option: CTRAID --
 			elseif (TBSettings.channel == "ctraid") then
 				if (GetNumRaidMembers() > 0) then					-- Checks if you are in a raid
 					if (IsAddOnLoaded("CT_RaidAssist")) then			-- Checks if CT_RaidAssist is loaded
@@ -63,8 +63,8 @@ function TB_OnEvent(event)
 					end
 					SendChatMessage(TBSettings.text_t,"RAID");		-- Announcement in raid channel	
 				end
-
-			-- Channel option: CHANNEL --
+				
+				-- Channel option: CHANNEL --
 			elseif (TBSettings.channel == "channel") then
 				local TB_channelId, TB_channelName = GetChannelName(TBSettings.channelName);
 				if (TB_channelId > 0) then						-- Checks if you are still in that channel
@@ -76,8 +76,8 @@ function TB_OnEvent(event)
 		if (mb) then			-- Checks if the string has the words "Mocking Blow"
 			local mbHit = string.find(arg1, TB_mbHitLine);						-- Checks if your mocking blow was hit
 			if (mbHit == nil) then			-- If your mocking blow didnt hit, then do ..
-	
-			-- Your mocking blow was failed, now announce in channel according to options --
+				
+				-- Your mocking blow was failed, now announce in channel according to options --
 				-- Channel option: AUTO --
 				if (TBSettings.channel == "auto") then
 					if (GetNumRaidMembers() > 0) then					-- Checks if you are in a raid
@@ -90,24 +90,24 @@ function TB_OnEvent(event)
 					else
 						SendChatMessage(TBSettings.text_mb,"SAY"); 		-- Announcement in say channel
 					end
-
-				-- Channel option: RAID --
+					
+					-- Channel option: RAID --
 				elseif (TBSettings.channel == "raid") then
 					if (GetNumRaidMembers() > 0) then					-- Checks if you are in a raid
 						SendChatMessage(TBSettings.text_mb,"RAID");			-- Announcement in raid channel
 					end
-		
-				-- Channel option: PARTY --
+					
+					-- Channel option: PARTY --
 				elseif (TBSettings.channel == "party") then
 					if (GetNumPartyMembers() > 0) then					-- Checks if you are in a party
 						SendChatMessage(TBSettings.text_mb,"PARTY"); 			-- Announcement in raid channel
 					end
-
-				-- Channel option: SAY --
+					
+					-- Channel option: SAY --
 				elseif (TBSettings.channel == "say") then
 					SendChatMessage(TBSettings.text_mb,"SAY"); 			-- Announcement in say channel
 					
-				-- Channel option: CTRAID --
+					-- Channel option: CTRAID --
 				elseif (TBSettings.channel == "ctraid") then
 					if (GetNumRaidMembers() > 0) then					-- Checks if you are in a raid
 						if (IsAddOnLoaded("CT_RaidAssist")) then			-- Checks if CT_RaidAssist is loaded
@@ -115,8 +115,8 @@ function TB_OnEvent(event)
 						end
 						SendChatMessage(TBSettings.text_mb,"RAID");		-- Announcement in raid channel	
 					end
-
-				-- Channel option: CHANNEL --
+					
+					-- Channel option: CHANNEL --
 				elseif (TBSettings.channel == "channel") then
 					local TB_channelId, TB_channelName = GetChannelName(TBSettings.channelName);
 					if (TB_channelId > 0) then						-- Checks if you are still in that channel
@@ -125,7 +125,7 @@ function TB_OnEvent(event)
 				end			
 			end
 		end
-
+		
 	elseif(event == "VARIABLES_LOADED") then
 		if (TBSettings == nil) then								-- SavedVariables
 			TBSettings = {};
@@ -160,7 +160,7 @@ function TB_OnEvent(event)
 		elseif (TBSettings.channel == "channel") then
 			UIDropDownMenu_SetSelectedID(TB_ChannelDropDown, 6);
 		end
-
+		
 		TB_Sendmsg("Taunt Buddy " .. TB_version .. TB_output_startup);			-- Taunt Buddy loading message
 		if (TBSettings.status == 1) then
 			TB_register();										-- Registers the event of self spell damage on startup
@@ -176,7 +176,7 @@ function TB_SlashCommandHandler( msg )
 	local TB_cmd_channel_argFound = string.find(command, "channel (%w+)"); 		-- Searchs the string for "channel x"
 	local TB_cmd_text_argFound_t = string.find(command, "text taunt (.+)"); 	-- Searchs the string for "text taunt"
 	local TB_cmd_text_argFound_mb = string.find(command, "text mb (.+)"); 		-- Searchs the string for "text mb"
-
+	
 	-- Console command: /TB ON --
 	if (command == TB_cmd_on) then
 		if (TBSettings.status == 1) then							-- Checks if Taunt Buddy is already enabled
@@ -187,8 +187,8 @@ function TB_SlashCommandHandler( msg )
 			TB_register();
 			TauntBuddyFrameCheckButton:SetChecked(1);
 		end
-
-	-- Console command: /TB OFF --
+		
+		-- Console command: /TB OFF --
 	elseif (command == TB_cmd_off) then
 		if (TBSettings.status == 0) then							-- Checks if Taunt Buddy is already disabled
 			TB_Sendmsg(TB_output_alreadyOff);			
@@ -198,10 +198,10 @@ function TB_SlashCommandHandler( msg )
 			TB_unregister();
 			TauntBuddyFrameCheckButton:SetChecked(0);
 		end
-
-	-- Console command: /TB STATUS --
+		
+		-- Console command: /TB STATUS --
 	elseif (command == TB_cmd_status) then
-
+		
 		-- Print Status --
 		if (TBSettings.status == 1) then
 			TB_Sendmsg(TB_output_on);
@@ -223,8 +223,8 @@ function TB_SlashCommandHandler( msg )
 		else
 			TB_Sendmsg(TB_output_off);
 		end
-
-	-- Console Command: /TB channel --	
+		
+		-- Console Command: /TB channel --	
 	elseif (TB_cmd_channel_argFound) then
 		local TB_channel = string.sub(command, 9); 					-- TB_channel is a new string without the "channel" part
 		local TB_channelId, TB_channelName = GetChannelName(TB_channel);
@@ -236,8 +236,8 @@ function TB_SlashCommandHandler( msg )
 		else
 			TB_Sendmsg(TB_output_channelNotFound);
 		end
-
-	-- Console Commands: [ /TB AUTO | /TB RAID | /TB PARTY | /TB CTRAID | /TB SAY] --
+		
+		-- Console Commands: [ /TB AUTO | /TB RAID | /TB PARTY | /TB CTRAID | /TB SAY] --
 	elseif (command == "auto") then
 		TBSettings.channel = "auto";
 		TB_Sendmsg(TB_output_channel_auto);
@@ -258,9 +258,9 @@ function TB_SlashCommandHandler( msg )
 		TBSettings.channel = "say";
 		TB_Sendmsg(TB_output_channel_say);
 		UIDropDownMenu_SetSelectedID(TB_ChannelDropDown, 5);
-   
-	
-	-- Console Command: /TB text --
+		
+		
+		-- Console Command: /TB text --
 	elseif (TB_cmd_text_argFound_t) then
 		TBSettings.text_t = string.sub(msg, 12);
 		TB_Sendmsg(TB_output_textChange_t .. TBSettings.text_t);
@@ -269,12 +269,12 @@ function TB_SlashCommandHandler( msg )
 		TB_Sendmsg(TB_output_textChange_mb .. TBSettings.text_mb);
 	elseif (command == "text" or command == "text taunt" or command == "text mb") then
 		TB_Sendmsg(TB_output_usage_text);
-
-	-- Console Command: /TB --
+		
+		-- Console Command: /TB --
 	elseif (command == "") then
 		TauntBuddyFrame:Show();		
-
-	-- Console Command: Unknown command or syntax error --
+		
+		-- Console Command: Unknown command or syntax error --
 	else
 		TauntBuddyFrame:Show();
 	end
@@ -304,27 +304,27 @@ function TB_ChannelDropDown_Initialize()
 	channel_info.text = TB_GUI_Channel_Auto;
 	channel_info.func = TB_ChannelDropDown_OnClick;
 	UIDropDownMenu_AddButton(channel_info);
-
+	
 	channel_info = {};
 	channel_info.text = TB_GUI_Channel_Ctraid;
 	channel_info.func = TB_ChannelDropDown_OnClick;
 	UIDropDownMenu_AddButton(channel_info);
-
+	
 	channel_info = {};
 	channel_info.text = TB_GUI_Channel_Raid;
 	channel_info.func = TB_ChannelDropDown_OnClick;
 	UIDropDownMenu_AddButton(channel_info);
-
+	
 	channel_info = {};
 	channel_info.text = TB_GUI_Channel_Party;
 	channel_info.func = TB_ChannelDropDown_OnClick;
 	UIDropDownMenu_AddButton(channel_info);
-
+	
 	channel_info = {};
 	channel_info.text = TB_GUI_Channel_Say;
 	channel_info.func = TB_ChannelDropDown_OnClick;
 	UIDropDownMenu_AddButton(channel_info);
-
+	
 	channel_info = {};
 	channel_info.text = TB_GUI_Channel_Custom;
 	channel_info.func = TB_ChannelDropDown_OnClick;
@@ -349,7 +349,7 @@ function TB_ChannelDropDown_OnClick()
 			TB_SetCustomChannel();
 		end
 	end
---Functions	
+	--Functions	
 end
 
 function TB_toggleStatus()
